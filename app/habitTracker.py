@@ -19,6 +19,14 @@ def remove_habit(habit_tracker):
         print(f" {habit} removed from tracker")
     else:
         print(f" {habit} not found in tracker")  
+def edit_habit(habit_tracker):
+    habit = input("Enter a habit to edit: ")
+    if habit in habit_tracker:
+        new_habit = input("Enter the new habit: ")
+        habit_tracker[habit_tracker.index(habit)] = new_habit
+        print(f" {habit} edited to {new_habit}")
+    else:
+        print(f" {habit} not found in tracker")
 
 if __name__ == "__main__":
     main()
