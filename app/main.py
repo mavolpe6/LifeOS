@@ -7,11 +7,14 @@ app = FastAPI()
 
 class Habit(BaseModel):
     name: str
-
+#create a habit
 @app.post("/habits")
  def create_habit(new_habit: Habit):
      new_habbit_string= new_habit.name
     add_habit(new_habbit_string)
     return {"message": f"Habit {new_habbit_string} added"}
-
+#get all habits
+@app.get("/habits")
+def get_all_habits():
+    return{view_habits()}
 
