@@ -20,4 +20,6 @@ def get_all_habits():
 @app.delete("/habits/{habit_name}")
 def delete_habit(habit_name:str):
    return remove_habit(habit_name)
-    
+@app.put("/habits/{habit_name}")
+def update_habit(habit_name:str, new_habit:Habit):
+    return edit
