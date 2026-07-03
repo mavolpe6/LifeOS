@@ -26,6 +26,14 @@ class Habit:
         return self.description
     def get_habit(self):
         return self
+    def set_name(self, new_name:string):
+        self.name = new_name
+    def set_description(self, new_description:string):
+        self.description = new_description
+    def set_streak(self, new_streak:int):
+        self.streak = new_streak
+    def set_completed(self, new_completed:bool):
+        self.completed = new_completed
 class HabitTracker:
     def __init__(self):
         self.habits = []
