@@ -25,3 +25,4 @@ def update_habit(habit_name:str, new_habit:Habit):
 @app.get("/habits/{habit_name}")
 def get_habit(habit_name:str):
     return get_habit(habit_name)
+    
