@@ -46,8 +46,11 @@ class HabitTracker:
     def edit_habit(self, habit:Habit, new_name:string, new_description:string):
         habit.name = new_name
         habit.description = new_description
-
-
+    def get_habit(self, habit_name:string):
+        for habit in self.habits:
+            if habit.name == habit_name:
+                return habit
+        return None
 def main():
     habit_tracker = HabitTracker()
 
