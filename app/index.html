@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Habit Tracker/title>
+        <title>Habit Tracker</title>
     </head>
     <body>
         <!---This is the header of the page- im learning html-->
@@ -9,6 +9,16 @@
         <hr>
         <br>
         <p>Track your habits and achieve your goals</p>
+        <form>
+            <label for="habit">Habit:</label>
+            <input type="text" id="habit" name="habit">
+            <label for="frequency">Frequency:</label>
+            <input type="number" id="frequency" name="frequency">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+            <label for="completed">Completed:</label>
+            <input type="checkbox" id="completed" name="completed">
+        </form>
         
     </body>
 </html>
