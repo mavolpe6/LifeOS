@@ -6,10 +6,9 @@ function SubmitHabit(){
     console.log(habit, frequency, description, completed);
 
     const newHabitData={
-        habit: habit,
-        frequency: frequency,
+        name: habit,
+        streak: frequency,
         description: description,
-        completed: completed
     }
     console.log(newHabitData);
 }
