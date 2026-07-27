@@ -17,6 +17,7 @@ class Habit(BaseModel):
     name: str
     description: str
     streak: int
+    
 #get all habits
 @app.post("/habits")
 def create_habit(new_habit:Habit):
