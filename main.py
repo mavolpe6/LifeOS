@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from habitTracker import *
+from habitTracker import add_habit, view_habits, remove_habit, edit_habit, get_habit
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 app.add_middleware(
