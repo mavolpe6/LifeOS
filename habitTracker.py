@@ -1,5 +1,5 @@
 class Habit:
-    def __init__(self, name:string, description:string, streak:int,completed:bool):
+    def __init__(self, name:str, description:str, streak:int,completed:bool):
         self.name = name
         self.description = description
         self.streak = streak
@@ -26,9 +26,9 @@ class Habit:
         return self.description
     def get_habit(self):
         return self
-    def set_name(self, new_name:string):
+    def set_name(self, new_name:str):
         self.name = new_name
-    def set_description(self, new_description:string):
+    def set_description(self, new_description:str):
         self.description = new_description
     def set_streak(self, new_streak:int):
         self.streak = new_streak
@@ -43,10 +43,10 @@ class HabitTracker:
         return self.habits
     def remove_habit(self, habit:Habit):
         self.habits.remove(habit)
-    def edit_habit(self, habit:Habit, new_name:string, new_description:string):
+    def edit_habit(self, habit:Habit, new_name:str, new_description:str):
         habit.name = new_name
         habit.description = new_description
-    def get_habit(self, habit_name:string):
+    def get_habit(self, habit_name:str):
         for habit in self.habits:
             if habit.name == habit_name:
                 return habit

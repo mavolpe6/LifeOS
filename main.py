@@ -1,20 +1,40 @@
-from contextlib import asynccontextmanager
-from collections.abc import AsyncIterator
-
 from fastapi import FastAPI
+from pydantic import BaseModel
+from habitTracker import *
+from fastapi.middleware.cors import CORSMiddleware
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-from app.config import settings
-from app.database import Base, engine
-from app.routes import api_router
-from app.routes.health import router as health_router
 
 
-@asynccontextmanager
-async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    Base.metadata.create_all(bind=engine)
-    yield
-
-
-app = FastAPI(title=settings.app_name, debug=settings.debug, lifespan=lifespan)
-app.include_router(health_router)
-app.include_router(api_router, prefix="/api")
+class Habit(BaseModel):
+    name: str
+    description: str
+    streak: int
+    
+#get all habits
+@app.post("/habits")
+def create_habit(new_habit:Habit):
+    news_habit=new_habit.model_dump()
+    return add_habit(news_habit)
+@app.get("/habits")
+def get_all_habits():
+    return view_habits()
+@app.delete("/habits/{habit_name}")
+def delete_habit(habit_name:str):
+   return remove_habit(habit_name)
+@app.put("/habits/{habit_name}")
+def update_habit(habit_name:str, new_habit:Habit):
+    news_habit=new_habit.model_dump()
+    habits_name=habit_name.model_dump()
+    return edit_habit(habits_name, news_habit.name, news_habit.description)
+@app.get("/habits/habit_name")
+def get_habit(habit_name:str):
+    return get_habit(habit_name)
+    
