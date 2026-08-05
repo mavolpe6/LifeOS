@@ -9,6 +9,7 @@ async function SubmitHabit(){
         name: habit,
         streak: parseInt(frequency),
         description: description,
+        completed: completed,
     }
     console.log(newHabitData);
 
