@@ -28,7 +28,7 @@ def create_habit(new_habit_data: HabitSchema):
         name=new_habit_data.name,
         description=new_habit_data.description,
         streak=new_habit_data.streak,
-        completed=False  # Required by your __init__!
+        completed=new_habit_data.completed  # Required by your __init__!
     )
     
     # 2. Add the real object to your tracker
